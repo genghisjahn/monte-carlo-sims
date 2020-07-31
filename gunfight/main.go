@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -18,8 +19,17 @@ var r1 = rand.New(s1)
 var data []byte
 var jErr error
 
+var flagfile string
+var flagfights int
+
+func init() {
+	flag.IntVar(&flagfights, "fights", 100, "Number of fights, default is 100")
+	flag.StringVar(&flagfile, "file", "default", "Name of file minus the .json suffix to pull fighter data from")
+}
+
 func main() {
-	data, jErr = ioutil.ReadFile("fighters.json")
+	flag.Parse()
+	data, jErr = ioutil.ReadFile(fmt.Sprintf("fighters/%v.json", flagfile))
 	if jErr != nil {
 		log.Fatal(jErr)
 	}
@@ -27,7 +37,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	for i := 0; i < 100000; i++ {
+	for i := 0; i < flagfights; i++ {
 		fight()
 	}
 
