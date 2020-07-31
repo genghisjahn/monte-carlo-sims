@@ -2,7 +2,7 @@
    {
         "name":"Mr. Pink",
         "confidence": 91.0,
-        "accuracy":19.0,
+        "accuracy":89.0,
         "speed":13.0,
         "cloaking": 25.0
     },
@@ -12,5 +12,33 @@
         "accuracy":57.0,
         "speed":53.0,
         "cloaking": 30.0
+    },
+    {
+        "name": "Mr. Orange", 
+        "confidence": 79.0,
+        "accuracy": 60.0,
+        "speed": 12.0,
+        "cloaking": 83.0
+    },
+    {
+        "name": "Mr. White", 
+        "confidence": 55.0,
+        "accuracy": 57.0,
+        "speed": 14.0,
+        "cloaking": 96.0
+    },
+    {
+        "name": "Mr. Blue",  
+        "confidence": 74.0,
+        "accuracy": 28.0,
+        "speed": 57.0,
+        "cloaking": 2.0
+    },
+    {
+        "name": "Mr. Brown", 
+        "confidence": 55.0,
+        "accuracy": 20.0,
+        "speed": 12.0,
+        "cloaking": 52.0
     }
 ]

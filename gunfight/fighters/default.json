@@ -65,8 +65,8 @@
     {
         "name": "Jon",
         "confidence": 100.0,
-        "accuracy":91.0,
+        "accuracy":71.0,
         "speed": 100.0,
-        "cloaking": 4.0
+        "cloaking": 100.0
     }
 ]

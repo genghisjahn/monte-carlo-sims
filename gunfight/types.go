@@ -36,7 +36,9 @@ func (g *gunfighter) setaccuracyscore() {
 		g.AccuracyScore = g.Accuracy
 		return
 	}
-	offset := (r1.Float32() * g.Cloaking) - 50.0
+	offset := ((r1.Float32() * g.Cloaking) * .2) - 10
+	//fmt.Println(g.Accuracy, offset)
+
 	g.AccuracyScore = g.Accuracy + offset
 }
 
