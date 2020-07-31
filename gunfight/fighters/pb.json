@@ -3,12 +3,14 @@
         "name":"Mr. Pink",
         "confidence": 91.0,
         "accuracy":19.0,
-        "speed":13.0
+        "speed":13.0,
+        "cloaking": 0.0
     },
     {
         "name":"Mr. Blonde",
         "confidence":5.0,
         "accuracy":57.0,
-        "speed":53.0
+        "speed":53.0,
+        "cloaking": 0.0
     }
 ]

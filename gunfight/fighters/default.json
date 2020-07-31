@@ -21,42 +21,49 @@
         "name": "Daniel",
         "confidence": 50.0,
         "accuracy": 36.0,
-        "speed": 46.0
+        "speed": 46.0,
+        "cloaking":0.0
     },
     {
         "name": "Edward",
         "confidence": 75.0,
         "accuracy": 24.0,
-        "speed": 65.0
+        "speed": 65.0,
+        "cloaking": 0.0
     },
     {
         "name": "Frank",
         "confidence": 42.0,
         "accuracy": 56.0,
-        "speed": 93.0
+        "speed": 93.0,
+        "cloaking": 0.0
     },
     {
         "name": "George",
         "confidence": 61.0,
         "accuracy": 27.0,
-        "speed": 85.0
+        "speed": 85.0,
+        "cloaking": 0.0
     },
     {
         "name": "Henry",
         "confidence":49.0,
         "accuracy":	66.0,
-        "speed":	9.0
+        "speed":	9.0,
+        "cloaking": 0.0
     },
     {
         "name": "Ivan",
         "confidence": 39.0,
         "accuracy": 90.0,
-        "speed": 82.0
+        "speed": 82.0,
+        "cloaking": 0.0
     },
     {
         "name": "Jon",
         "confidence": 100.0,
         "accuracy":91.0,
-        "speed": 100.0
+        "speed": 100.0,
+        "cloaking": 0.0
     }
 ]

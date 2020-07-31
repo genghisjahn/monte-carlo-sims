@@ -3,12 +3,14 @@
         "name":"Optimus Prime",
         "confidence": 15.0,
         "accuracy":81.0,
-        "speed":5.0
+        "speed":5.0,
+        "cloaking": 0.0
     },
     {
         "name":"Megatron",
         "confidence":39.0,
         "accuracy":33.0,
-        "speed":65.0
+        "speed":65.0,
+        "cloaking": 0.0
     }
 ]
