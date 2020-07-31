@@ -9,9 +9,10 @@ type gunfighter struct {
 	Name       string  `json:"name"`
 	Accuracy   float32 `json:"accuracy"`
 	Speed      float32 `json:"speed"`
-	SpeedScore float32 `json:"speed_score"`
+	Cloaking   float32 `json:"cloaking"`
 	Confidence float32 `json:"confidence"`
-	RndScore   float32 `json:"random_score"`
+	SpeedScore float32
+	RndScore   float32
 	Dead       bool
 	Shots      int
 	Kills      []string
