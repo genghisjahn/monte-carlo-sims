@@ -33,12 +33,18 @@
         "name": "Frank",
         "confidence": 42.0,
         "accuracy": 96.0,
-        "speed": 13.0
+        "speed": 93.0
     },
     {
         "name": "George",
         "confidence": 61.0,
         "accuracy": 27.0,
         "speed": 85.0
+    },
+    {
+        "name": "Henry",
+        "confidence":49.0,
+        "accuracy":	66.0,
+        "speed":	9.0
     }
 ]
