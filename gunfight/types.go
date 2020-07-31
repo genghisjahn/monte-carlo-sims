@@ -52,6 +52,7 @@ func (g *gunfighter) shoot() (string, string) {
 	var target = &gunfighter{}
 	var comment = ""
 	sort.Sort(byAccuracy(livingFighters))
+	//somewhere around here we need to add the offset to the Accuracy so that the most accurate gun fighter isn't targeted by all the others every time
 	if g.Confidence*r1.Float32() > t {
 		if livingFighters[0].Name != g.Name {
 			target = livingFighters[0]
