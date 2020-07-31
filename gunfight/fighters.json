@@ -46,5 +46,17 @@
         "confidence":49.0,
         "accuracy":	66.0,
         "speed":	9.0
+    },
+    {
+        "name": "Ivan",
+        "confidence": 39.0,
+        "accuracy": 90.0,
+        "speed": 82.0
+    },
+    {
+        "name": "Jon",
+        "confidence": 100.0,
+        "accuracy":91.0,
+        "speed": 100.0
     }
 ]
