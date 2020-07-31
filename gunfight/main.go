@@ -39,6 +39,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println(flagcloaking)
 	if !flagcloaking {
 		for k := range fighters {
 			fighters[k].Cloaking = 0.0
@@ -69,6 +70,7 @@ func fight() {
 		c++
 		for k, v := range fighters {
 			v.setspeed()
+			v.setaccuracyscore()
 			fighters[k] = v
 		}
 		for k, g := range fighters {
