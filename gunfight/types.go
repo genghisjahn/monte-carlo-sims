@@ -21,7 +21,8 @@ type gunfighter struct {
 }
 
 func (g *gunfighter) setspeed() {
-	g.SpeedScore = r1.Float32() * g.Speed
+	//	offset := (r1.Float32() * 20.0) - 10.0
+	g.SpeedScore = (r1.Float32() * g.Speed) // + offset
 }
 
 func (g *gunfighter) setrnd() {

@@ -14,7 +14,7 @@
     {
         "name":"Chuck",
         "confidence":72.0,
-        "accuracy":91.0,
+        "accuracy":92.0,
         "speed":20.0
     },
     {
@@ -32,7 +32,7 @@
     {
         "name": "Frank",
         "confidence": 42.0,
-        "accuracy": 96.0,
+        "accuracy": 56.0,
         "speed": 93.0
     },
     {
