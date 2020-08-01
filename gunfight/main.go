@@ -21,13 +21,11 @@ var jErr error
 
 var flagfile string
 var flagfights int
-var flagcloaking bool
 var flaglog bool
 
 func init() {
 	flag.IntVar(&flagfights, "fights", 100, "Number of fights, default is 100")
 	flag.StringVar(&flagfile, "file", "default", "Name of file minus the .json suffix to pull fighter data from")
-	flag.BoolVar(&flagcloaking, "cloaking", false, "Default is false, no cloaking. Boolean value, if set to true then the cloaking score will affect how the Accuracy is perceived when using the Confidence score to select an opponent to shoot at.")
 	flag.BoolVar(&flaglog, "log", false, "Default is false. Logs the output of each shot.")
 }
 
@@ -41,11 +39,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if !flagcloaking {
-		for k := range fighters {
-			fighters[k].Cloaking = 0.0
-		}
-	}
+
 	for i := 0; i < flagfights; i++ {
 		fight()
 	}
@@ -74,7 +68,6 @@ func fight() {
 		c++
 		for k, v := range fighters {
 			v.setspeed()
-			v.setaccuracyscore()
 			fighters[k] = v
 		}
 		for k, g := range fighters {

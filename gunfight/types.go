@@ -6,20 +6,18 @@ import (
 )
 
 type gunfighter struct {
-	Name          string  `json:"name"`
-	Accuracy      float32 `json:"accuracy"`
-	Speed         float32 `json:"speed"`
-	Cloaking      float32 `json:"cloaking"`
-	Confidence    float32 `json:"confidence"`
-	AccuracyScore float32
-	SpeedScore    float32
-	RndScore      float32
-	Dead          bool
-	Shots         int
-	Kills         []string
-	ShotAt        int
-	KilledBy      string
-	Victories     int
+	Name       string  `json:"name"`
+	Accuracy   float32 `json:"accuracy"`
+	Speed      float32 `json:"speed"`
+	Confidence float32 `json:"confidence"`
+	SpeedScore float32
+	RndScore   float32
+	Dead       bool
+	Shots      int
+	Kills      []string
+	ShotAt     int
+	KilledBy   string
+	Victories  int
 }
 
 func (g *gunfighter) setspeed() {
@@ -29,17 +27,6 @@ func (g *gunfighter) setspeed() {
 
 func (g *gunfighter) setrnd() {
 	g.RndScore = r1.Float32()
-}
-
-func (g *gunfighter) setaccuracyscore() {
-	if g.Cloaking == 0 {
-		g.AccuracyScore = g.Accuracy
-		return
-	}
-	offset := ((r1.Float32() * g.Cloaking) * .2) - 10
-	//fmt.Println(g.Accuracy, offset)
-
-	g.AccuracyScore = g.Accuracy + offset
 }
 
 func (g *gunfighter) FinalResult() string {
@@ -64,7 +51,7 @@ func (g *gunfighter) shoot() (string, string) {
 	t := r1.Float32() * 100
 	var target = &gunfighter{}
 	var comment = ""
-	sort.Sort(byAccuracyScore(livingFighters))
+	sort.Sort(byAccuracy(livingFighters))
 	if g.Confidence*r1.Float32() > t {
 		if livingFighters[0].Name != g.Name {
 			target = livingFighters[0]
@@ -108,11 +95,11 @@ func (g *gunfighter) shoot() (string, string) {
 	return fmt.Sprintf(e, g.Name, r, target.Name, comment), d
 }
 
-type byAccuracyScore []*gunfighter
+type byAccuracy []*gunfighter
 
-func (a byAccuracyScore) Len() int           { return len(a) }
-func (a byAccuracyScore) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
-func (a byAccuracyScore) Less(i, j int) bool { return a[i].AccuracyScore > a[j].AccuracyScore }
+func (a byAccuracy) Len() int           { return len(a) }
+func (a byAccuracy) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a byAccuracy) Less(i, j int) bool { return a[i].Accuracy > a[j].Accuracy }
 
 type bySpeedScore []*gunfighter
 
