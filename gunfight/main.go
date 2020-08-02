@@ -8,6 +8,7 @@ import (
 	"log"
 	"math/rand"
 	"sort"
+	"strings"
 	"time"
 )
 
@@ -28,18 +29,35 @@ func init() {
 	flag.IntVar(&flagfights, "r", 100, "Number of rounds, default is 100")
 	flag.StringVar(&flagfile, "f", "default", "Name of file minus the .json suffix to pull fighter data from")
 	flag.BoolVar(&flaglog, "log", false, "Default is false. Logs the output of each shot.")
-	flag.StringVar(&flagcontestants, "c", "", "Specify which fighters file will fight, default is all (empty string)")
+	flag.StringVar(&flagcontestants, "c", "", "Comma delimited string species which fighters from the file selected will fight, default is all (empty string)")
 }
 
 func main() {
+	var rawfighters = []*gunfighter{}
 	flag.Parse()
 	data, jErr = ioutil.ReadFile(fmt.Sprintf("fighters/%v.json", flagfile))
 	if jErr != nil {
 		log.Fatal(jErr)
 	}
-	err := json.Unmarshal(data, &fighters)
+	err := json.Unmarshal(data, &rawfighters)
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	if flagcontestants != "" {
+		names := strings.Split(flagcontestants, ",")
+		for _, n := range names {
+			for _, v := range rawfighters {
+				if strings.ToLower(v.Name) == strings.TrimSpace(n) {
+					fighters = append(fighters, v)
+				}
+			}
+		}
+		if len(fighters) < 2 {
+			log.Fatal("Number of specified fighters must be at least 2")
+		}
+	} else {
+		fighters = rawfighters
 	}
 
 	for i := 0; i < flagfights; i++ {
