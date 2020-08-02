@@ -62,7 +62,7 @@ func main() {
 		names := strings.Split(flagcontestants, ",")
 		for _, n := range names {
 			for _, v := range rawfighters {
-				if strings.ToLower(v.Name) == strings.TrimSpace(n) {
+				if strings.ToLower(v.Name) == strings.TrimSpace(strings.ToLower(n)) {
 					fighters = append(fighters, v)
 				}
 			}
