@@ -6,10 +6,7 @@ import (
 )
 
 type gunfighter struct {
-	Name       string  `json:"name"`
-	Accuracy   float32 `json:"accuracy"`
-	Speed      float32 `json:"speed"`
-	Confidence float32 `json:"confidence"`
+	baseFigterStats
 	SpeedScore float32
 	RndScore   float32
 	Dead       bool
@@ -18,6 +15,13 @@ type gunfighter struct {
 	ShotAt     int
 	KilledBy   string
 	Victories  int
+}
+
+type baseFigterStats struct {
+	Name       string  `json:"name"`
+	Accuracy   float32 `json:"accuracy"`
+	Speed      float32 `json:"speed"`
+	Confidence float32 `json:"confidence"`
 }
 
 func (g *gunfighter) setspeed() {
