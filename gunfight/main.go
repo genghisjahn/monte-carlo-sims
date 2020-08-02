@@ -25,6 +25,7 @@ var flagfights int
 var flaglog bool
 var flagcontestants string
 var flagtournament int
+var flagcreate int
 
 func init() {
 	flag.IntVar(&flagfights, "r", 100, "Number of rounds, default is 100")
@@ -32,11 +33,22 @@ func init() {
 	flag.BoolVar(&flaglog, "log", false, "Default is false. Logs the output of each shot.")
 	flag.StringVar(&flagcontestants, "c", "", "Comma delimited string species which fighters from the file selected will fight, default is all (empty string)")
 	flag.IntVar(&flagtournament, "t", 2, "Tournament flag, number of fighters to be in each fight of a round robbin tournament, winner moves on.  Default is 2")
+	flag.IntVar(&flagcreate, "create", 0, "Number of random fighters to created.  Default is 0")
 }
 
 func main() {
 	var rawfighters = []*gunfighter{}
 	flag.Parse()
+
+	if flagcreate > 0 {
+		fname, fErr := createFighters(flagcreate)
+		if fErr != nil {
+			log.Fatal(fErr)
+		}
+		fmt.Printf("%v fighter(s) create in file /fighters/%v.json\n", flagcreate, fname)
+		return
+	}
+
 	data, jErr = ioutil.ReadFile(fmt.Sprintf("fighters/%v.json", flagfile))
 	if jErr != nil {
 		log.Fatal(jErr)
