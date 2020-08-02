@@ -24,12 +24,14 @@ var flagfile string
 var flagfights int
 var flaglog bool
 var flagcontestants string
+var flagtournament int
 
 func init() {
 	flag.IntVar(&flagfights, "r", 100, "Number of rounds, default is 100")
 	flag.StringVar(&flagfile, "f", "default", "Name of file minus the .json suffix to pull fighter data from")
 	flag.BoolVar(&flaglog, "log", false, "Default is false. Logs the output of each shot.")
 	flag.StringVar(&flagcontestants, "c", "", "Comma delimited string species which fighters from the file selected will fight, default is all (empty string)")
+	flag.IntVar(&flagtournament, "t", 2, "Tournament flag, number of fighters to be in each fight of a round robbin tournament, winner moves on.  Default is 2")
 }
 
 func main() {
