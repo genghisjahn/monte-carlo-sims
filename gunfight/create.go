@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"math/rand"
 	"time"
 )
@@ -24,12 +25,13 @@ func createFighters(n int) (string, error) {
 		gf.Speed = r1.Float32() * 100
 		gs = append(gs, &gf)
 	}
-	data, err := json.Marshal(gs)
-	if err != nil {
-		return "", err
+	prettyJSON, errP := json.MarshalIndent(gs, "", "    ")
+	if errP != nil {
+		log.Fatal("Failed to generate json", errP)
+		return "", errP
 	}
 	fname := getFileName(8) + ".json"
-	errJ := ioutil.WriteFile(fmt.Sprintf("fighters/%v", fname), data, 0644)
+	errJ := ioutil.WriteFile(fmt.Sprintf("fighters/%v", fname), prettyJSON, 0644)
 	if errJ != nil {
 		return "", errJ
 	}
