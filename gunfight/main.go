@@ -22,11 +22,13 @@ var jErr error
 var flagfile string
 var flagfights int
 var flaglog bool
+var flagcontestants string
 
 func init() {
-	flag.IntVar(&flagfights, "fights", 100, "Number of fights, default is 100")
-	flag.StringVar(&flagfile, "file", "default", "Name of file minus the .json suffix to pull fighter data from")
+	flag.IntVar(&flagfights, "r", 100, "Number of rounds, default is 100")
+	flag.StringVar(&flagfile, "f", "default", "Name of file minus the .json suffix to pull fighter data from")
 	flag.BoolVar(&flaglog, "log", false, "Default is false. Logs the output of each shot.")
+	flag.StringVar(&flagcontestants, "c", "", "Specify which fighters file will fight, default is all (empty string)")
 }
 
 func main() {
